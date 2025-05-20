@@ -12,22 +12,28 @@ public class Jogo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
-    private  Integer ano;
+    private Integer ano;
     private String genero;
     private String console;
+    private Double pontuacao;
     private String imgUrl;
-    private String descricaoCurta;
-    private String descricaoLonga;
 
+    @Column(columnDefinition = "TEXT")
+    private String descricaoCurta;
+
+    @Column(columnDefinition = "TEXT")
+    private String descricaoLonga;
     public Jogo() {
     }
 
-    public Jogo(Long id, String titulo, Integer ano, String genero, String console, String imgUrl, String descricaoCurta, String descricaoLonga) {
+    public Jogo(Long id, String titulo, Integer ano, String genero, String console, Double pontuacao,
+                String imgUrl, String descricaoCurta, String descricaoLonga) {
         this.id = id;
         this.titulo = titulo;
         this.ano = ano;
         this.genero = genero;
         this.console = console;
+        this.pontuacao = pontuacao;
         this.imgUrl = imgUrl;
         this.descricaoCurta = descricaoCurta;
         this.descricaoLonga = descricaoLonga;
@@ -71,6 +77,14 @@ public class Jogo {
 
     public void setConsole(String console) {
         this.console = console;
+    }
+
+    public Double getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(Double pontuacao) {
+        this.pontuacao = pontuacao;
     }
 
     public String getImgUrl() {
