@@ -23,6 +23,7 @@ public class Jogo {
 
     @Column(columnDefinition = "TEXT")
     private String descricaoLonga;
+
     public Jogo() {
     }
 
