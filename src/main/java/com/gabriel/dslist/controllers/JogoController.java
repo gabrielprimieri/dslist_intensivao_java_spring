@@ -25,7 +25,7 @@ public class JogoController {
     }
 
     @GetMapping
-    public List<JogoMinDTO> findAll () { // LINHA 28
+    public List<JogoMinDTO> findAll () {
         List<JogoMinDTO> resultado = jogoService.findAll();
         return resultado;
     }
