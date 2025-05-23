@@ -13,7 +13,7 @@ public interface JogoRepository extends JpaRepository<Jogo, Long> {
     @Query(nativeQuery = true, value = """
     SELECT tb_jogo.id, 
            tb_jogo.titulo, 
-           tb_jogo.ano AS `ano`, 
+           tb_jogo.ano AS jogoAno, 
            tb_jogo.img_url AS imgUrl,
            tb_jogo.descricao_curta AS descricaoCurta, 
            tb_vinculo_jogo_lista.posicao
