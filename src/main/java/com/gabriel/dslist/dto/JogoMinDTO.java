@@ -1,6 +1,7 @@
 package com.gabriel.dslist.dto;
 
 import com.gabriel.dslist.entities.Jogo;
+import com.gabriel.dslist.projections.JogoMinProjection;
 
 public class JogoMinDTO {
 
@@ -19,6 +20,14 @@ public class JogoMinDTO {
         ano = entity.getAno();
         imgUrl = entity.getImgUrl();
         descricaoCurta = entity.getDescricaoCurta();
+    }
+
+    public JogoMinDTO(JogoMinProjection projection) {
+        id = projection.getId();
+        titulo = projection.getTitulo();
+        ano = projection.getAno();
+        imgUrl = projection.getImgUrl();
+        descricaoCurta = projection.getDescricaoCurta();
     }
 
     public Long getId() {

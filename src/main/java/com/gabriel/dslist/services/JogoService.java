@@ -3,6 +3,7 @@ package com.gabriel.dslist.services;
 import com.gabriel.dslist.dto.JogoDTO;
 import com.gabriel.dslist.dto.JogoMinDTO;
 import com.gabriel.dslist.entities.Jogo;
+import com.gabriel.dslist.projections.JogoMinProjection;
 import com.gabriel.dslist.repositories.JogoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,11 @@ public class JogoService {
         List<Jogo> resultado = jogoRepository.findAll();
         List<JogoMinDTO> dto = resultado.stream().map(x -> new JogoMinDTO(x)).toList();
         return dto;
+    }
+
+    @Transactional(readOnly = true)
+    public List<JogoMinDTO> findByList(Long listaId) {
+        List<JogoMinProjection> resultado = jogoRepository.searchByList(listaId);
+        return resultado.stream().map(jogoMinProjection -> new JogoMinDTO(jogoMinProjection)).toList();
     }
 }
